@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+table {
+  .is-completed {
+    text-decoration: line-through;
+    opacity: 0.4;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+}

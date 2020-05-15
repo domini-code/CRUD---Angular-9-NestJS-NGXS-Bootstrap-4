@@ -1,0 +1,41 @@
+<ng-container *ngIf="todos$ | async as todos; else loading">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos; trackBy: trackByFunction">
+        <td [ngClass]="{ 'is-completed': todo.completed }">{{ todo.name }}</td>
+        <td>
+          <button
+            [disabled]="todo.completed"
+            class="btn btn-outline-info"
+            (click)="onEdit(todo)"
+          >
+            Edit
+          </button>
+          &nbsp;
+          <button
+            [disabled]="todo.completed"
+            class="btn btn-outline-danger"
+            (click)="onDelete(todo._id)"
+          >
+            Delete
+          </button>
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            [disabled]="todo.completed"
+            (click)="onCompletedTodo(todo)"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+<ng-template #loading>Loading data...</ng-template>

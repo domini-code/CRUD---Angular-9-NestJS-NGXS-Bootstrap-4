@@ -1,0 +1,16 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSave(todoForm.value)" novalidate>
+  <input type="hidden" class="form-control" formControlName="_id" />
+  <div class="form-group row">
+    <div class="col-sm-12">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Name"
+        formControlName="name"
+      />
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg mb-2 btn-block">
+    Save
+  </button>
+</form>
